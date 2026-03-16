@@ -1,1 +1,100 @@
-<h1>admin-dashboard works!</h1>
+<div class="dashboard">
+  <h2 class="dashboard-titulo">Visão Geral</h2>
+
+  <div class="stats-grid">
+    <div class="stat-card stat-card--vendas">
+      <div class="stat-icone">💰</div>
+      <div class="stat-info">
+        <span class="stat-valor">R$ 12.480</span>
+        <span class="stat-label">Vendas do Mês</span>
+        <span class="stat-crescimento stat-crescimento--pos">▲ +18,5%</span>
+      </div>
+    </div>
+    <div class="stat-card stat-card--pedidos">
+      <div class="stat-icone">📦</div>
+      <div class="stat-info">
+        <span class="stat-valor">147</span>
+        <span class="stat-label">Pedidos</span>
+        <span class="stat-crescimento stat-crescimento--pos">▲ +12%</span>
+      </div>
+    </div>
+    <div class="stat-card stat-card--clientes">
+      <div class="stat-icone">👥</div>
+      <div class="stat-info">
+        <span class="stat-valor">892</span>
+        <span class="stat-label">Clientes</span>
+        <span class="stat-crescimento stat-crescimento--pos">▲ +7,2%</span>
+      </div>
+    </div>
+    <div class="stat-card stat-card--produtos">
+      <div class="stat-icone">👕</div>
+      <div class="stat-info">
+        <span class="stat-valor">{{ totalProdutos }}</span>
+        <span class="stat-label">Produtos Ativos</span>
+        <span class="stat-crescimento stat-crescimento--neu">● Estável</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="dashboard-card">
+      <h3 class="card-titulo">Pedidos Recentes</h3>
+      <table class="admin-tabela">
+        <thead>
+          <tr>
+            <th>Pedido</th>
+            <th>Cliente</th>
+            <th>Produto</th>
+            <th>Valor</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>#00147</strong></td>
+            <td>Ana Silva</td>
+            <td>Vestido Midi Floral</td>
+            <td>R$ 179,90</td>
+            <td><span class="status-badge status-badge--entregue">Entregue</span></td>
+          </tr>
+          <tr>
+            <td><strong>#00146</strong></td>
+            <td>Carlos Mendes</td>
+            <td>Moletom Canguru</td>
+            <td>R$ 139,90</td>
+            <td><span class="status-badge status-badge--envio">Em Envio</span></td>
+          </tr>
+          <tr>
+            <td><strong>#00145</strong></td>
+            <td>Mariana Costa</td>
+            <td>Blazer Alfaiataria</td>
+            <td>R$ 259,90</td>
+            <td><span class="status-badge status-badge--processando">Processando</span></td>
+          </tr>
+          <tr>
+            <td><strong>#00144</strong></td>
+            <td>Pedro Alves</td>
+            <td>Calça Mom Jeans</td>
+            <td>R$ 149,90</td>
+            <td><span class="status-badge status-badge--entregue">Entregue</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="dashboard-card">
+      <h3 class="card-titulo">Mais Vendidos</h3>
+      <div class="mais-vendidos">
+        <div class="mais-vendido-item" *ngFor="let p of produtos; let i = index">
+          <span class="mais-vendido-rank">{{ i + 1 }}</span>
+          <span class="mais-vendido-icone">{{ p.icone }}</span>
+          <div class="mais-vendido-info">
+            <strong>{{ p.nome }}</strong>
+            <span>{{ p.categoria }}</span>
+          </div>
+          <span class="mais-vendido-preco">R$ {{ p.preco | number:'1.2-2' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

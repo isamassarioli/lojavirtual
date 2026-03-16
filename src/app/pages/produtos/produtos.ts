@@ -12,4 +12,8 @@ import { PRODUTOS, Produto } from '../../data/produtos.data';
 })
 export class Produtos {
   produtos: Produto[] = PRODUTOS;
+
+  calcDesconto(preco: number, precoOriginal: number): number {
+    return Math.round((1 - preco / precoOriginal) * 100);
+  }
 }

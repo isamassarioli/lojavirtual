@@ -18,4 +18,8 @@ export class ProdutoDetalhe {
     const id = idParam ? Number(idParam) : NaN;
     this.produto = PRODUTOS.find((p) => p.id === id);
   }
+
+  calcDesconto(preco: number, precoOriginal: number): number {
+    return Math.round((1 - preco / precoOriginal) * 100);
+  }
 }

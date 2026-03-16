@@ -1,0 +1,165 @@
+﻿.dashboard { padding: 0; }
+
+.dashboard-titulo {
+  font-family: var(--font-titulo);
+  font-size: 1.6rem;
+  color: var(--cor-primaria);
+  margin-bottom: 28px;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: var(--cor-branco);
+  border-radius: var(--raio-borda);
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  box-shadow: var(--sombra-card);
+  border-left: 4px solid transparent;
+}
+
+.stat-card--vendas  { border-left-color: #22c55e; }
+.stat-card--pedidos { border-left-color: #3b82f6; }
+.stat-card--clientes{ border-left-color: #f59e0b; }
+.stat-card--produtos{ border-left-color: var(--cor-acento); }
+
+.stat-icone {
+  font-size: 2.2rem;
+  width: 56px;
+  height: 56px;
+  background: var(--cor-fundo-cinza);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-info { display: flex; flex-direction: column; gap: 3px; }
+
+.stat-valor {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  font-family: var(--font-titulo);
+  line-height: 1;
+}
+
+.stat-label { font-size: 0.8rem; color: var(--cor-texto-suave); font-weight: 500; }
+
+.stat-crescimento { font-size: 0.75rem; font-weight: 600; }
+.stat-crescimento--pos { color: #22c55e; }
+.stat-crescimento--neg { color: var(--cor-acento); }
+.stat-crescimento--neu { color: var(--cor-texto-suave); }
+
+/* Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.dashboard-card {
+  background: var(--cor-branco);
+  border-radius: var(--raio-borda);
+  padding: 24px;
+  box-shadow: var(--sombra-card);
+}
+
+.card-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--cor-borda);
+  display: block;
+}
+
+/* Tabela */
+.admin-tabela { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+
+.admin-tabela th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--cor-texto-suave);
+  background: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.admin-tabela td {
+  padding: 12px;
+  border-bottom: 1px solid var(--cor-borda);
+  color: var(--cor-texto);
+  vertical-align: middle;
+}
+
+.admin-tabela tr:last-child td { border-bottom: none; }
+.admin-tabela tr:hover td { background: var(--cor-fundo); }
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.status-badge--entregue    { background: #dcfce7; color: #16a34a; }
+.status-badge--envio       { background: #dbeafe; color: #2563eb; }
+.status-badge--processando { background: #fef9c3; color: #ca8a04; }
+
+/* Mais vendidos */
+.mais-vendidos { display: flex; flex-direction: column; gap: 4px; }
+
+.mais-vendido-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: var(--transicao);
+}
+
+.mais-vendido-item:hover { background: var(--cor-fundo); }
+
+.mais-vendido-rank {
+  width: 24px;
+  height: 24px;
+  background: var(--cor-fundo-cinza);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cor-texto-suave);
+  flex-shrink: 0;
+}
+
+.mais-vendido-icone { font-size: 1.5rem; width: 32px; text-align: center; }
+.mais-vendido-info { flex: 1; }
+.mais-vendido-info strong { display: block; font-size: 0.85rem; color: var(--cor-primaria); font-weight: 600; }
+.mais-vendido-info span { font-size: 0.75rem; color: var(--cor-texto-suave); }
+.mais-vendido-preco { font-size: 0.875rem; font-weight: 700; color: var(--cor-primaria); white-space: nowrap; }
+
+@media (max-width: 1100px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}

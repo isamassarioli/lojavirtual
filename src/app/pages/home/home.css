@@ -1,0 +1,320 @@
+﻿/* === HERO === */
+.hero {
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  gap: 60px;
+}
+
+.hero-conteudo { max-width: 520px; }
+
+.hero-tag {
+  display: inline-block;
+  background: var(--cor-acento-suave);
+  color: var(--cor-acento);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.hero-titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.2;
+  color: var(--cor-primaria);
+  margin-bottom: 20px;
+}
+
+.hero-titulo em {
+  font-style: italic;
+  color: var(--cor-acento);
+}
+
+.hero-descricao {
+  font-size: 1.05rem;
+  color: var(--cor-texto-suave);
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+.hero-acoes {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-visual {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.hero-card-grande {
+  width: 200px;
+  height: 280px;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  position: relative;
+}
+
+.hero-badge {
+  position: absolute;
+  top: 16px;
+  right: -14px;
+  background: var(--cor-primaria);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-family: var(--font-corpo);
+}
+
+.hero-cards-pequenos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-card-pequeno {
+  width: 110px;
+  height: 82px;
+  background: var(--cor-branco);
+  border-radius: 16px;
+  box-shadow: var(--sombra-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 1.8rem;
+  transition: var(--transicao);
+}
+
+.hero-card-pequeno small {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero-card-acento { background: var(--cor-acento); }
+.hero-card-acento small { color: rgba(255, 255, 255, 0.85); }
+
+/* === SEÇÕES === */
+.secao-categorias {
+  background: var(--cor-branco);
+  padding: 64px 0;
+}
+
+.secao-destaques { padding: 64px 0; }
+
+.secao-titulo {
+  font-family: var(--font-titulo);
+  font-size: 1.9rem;
+  margin-bottom: 32px;
+  color: var(--cor-primaria);
+}
+
+.secao-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.secao-header .secao-titulo { margin-bottom: 0; }
+
+.ver-todos {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cor-acento);
+  transition: var(--transicao);
+}
+
+.ver-todos:hover { letter-spacing: 0.5px; }
+
+/* Categorias */
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.categoria-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--cor-fundo);
+  padding: 28px 16px;
+  border-radius: var(--raio-borda);
+  border: 2px solid var(--cor-borda);
+  text-decoration: none;
+  transition: var(--transicao);
+}
+
+.categoria-card:hover {
+  border-color: var(--cor-acento);
+  background: var(--cor-acento-suave);
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-card);
+}
+
+.categoria-icone { font-size: 2.2rem; }
+
+.categoria-nome {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cor-texto);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Produtos Grid (home) */
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.produto-card {
+  background: var(--cor-branco);
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  box-shadow: var(--sombra-card);
+  text-decoration: none;
+  color: var(--cor-texto);
+  transition: var(--transicao);
+  display: block;
+}
+
+.produto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-hover);
+}
+
+.produto-imagem {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.produto-icone-grade { font-size: 5rem; }
+
+.produto-badge-desconto {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--cor-acento);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.produto-info { padding: 16px 20px 20px; }
+
+.produto-categoria {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--cor-acento);
+  margin-bottom: 6px;
+}
+
+.produto-nome {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.produto-precos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.produto-preco {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.produto-preco-original {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+  text-decoration: line-through;
+}
+
+/* === BANNER === */
+.banner-oferta {
+  background: linear-gradient(135deg, #0d0d0d 0%, #2d2d2d 100%);
+  padding: 64px 0;
+  margin-top: 40px;
+}
+
+.banner-conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.banner-tag {
+  display: inline-block;
+  background: var(--cor-acento);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.banner-titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: white;
+  margin-bottom: 8px;
+}
+
+.banner-texto p { color: rgba(255, 255, 255, 0.55); }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .hero { flex-direction: column; align-items: flex-start; padding: 48px 24px; min-height: auto; gap: 40px; }
+  .hero-visual { align-self: center; }
+  .categorias-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .categorias-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-titulo { font-size: 2rem; }
+  .hero-card-grande { width: 160px; height: 220px; font-size: 4rem; }
+}

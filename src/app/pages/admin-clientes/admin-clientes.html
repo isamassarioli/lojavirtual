@@ -1,1 +1,48 @@
-<h1>admin-clientes works!</h1>
+<div class="clientes-page">
+  <div class="page-header">
+    <h2 class="dashboard-titulo">Clientes</h2>
+    <button class="btn-acento">+ Novo Cliente</button>
+  </div>
+
+  <div class="dashboard-card">
+    <div class="tabela-header">
+      <span class="card-titulo">Lista de Clientes ({{ clientes.length }})</span>
+      <input type="text" class="busca-input" placeholder="🔍 Buscar cliente..." />
+    </div>
+    <table class="admin-tabela">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Cidade</th>
+          <th>Compras</th>
+          <th>Total Gasto</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes">
+          <td class="texto-suave">{{ cliente.id }}</td>
+          <td>
+            <div class="cliente-nome-wrap">
+              <span class="cliente-avatar">{{ cliente.nome[0] }}</span>
+              {{ cliente.nome }}
+            </div>
+          </td>
+          <td class="texto-suave">{{ cliente.email }}</td>
+          <td class="texto-suave">{{ cliente.cidade }}</td>
+          <td>{{ cliente.compras }}</td>
+          <td><strong>R$ {{ cliente.totalGasto | number:'1.2-2' }}</strong></td>
+          <td>
+            <span class="status-badge"
+              [class.status-badge--ativo]="cliente.ativo"
+              [class.status-badge--inativo]="!cliente.ativo">
+              {{ cliente.ativo ? 'Ativo' : 'Inativo' }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,1 +1,132 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cor-primaria: #0d0d0d;
+  --cor-acento: #FF385C;
+  --cor-acento-hover: #e0274a;
+  --cor-acento-suave: #fff0f2;
+  --cor-fundo: #fafafa;
+  --cor-fundo-cinza: #f0f0f0;
+  --cor-texto: #1a1a1a;
+  --cor-texto-suave: #888888;
+  --cor-borda: #e5e5e5;
+  --cor-branco: #ffffff;
+  --sombra-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --sombra-hover: 0 8px 40px rgba(0, 0, 0, 0.16);
+  --sombra-header: 0 2px 20px rgba(0, 0, 0, 0.06);
+  --raio-borda: 12px;
+  --raio-borda-sm: 6px;
+  --transicao: all 0.25s ease;
+  --font-titulo: 'Playfair Display', Georgia, serif;
+  --font-corpo: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transicao);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul { list-style: none; }
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-corpo);
+}
+
+/* ─── Botões ─── */
+.btn-primario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--cor-primaria);
+  color: var(--cor-branco);
+  padding: 12px 28px;
+  border-radius: var(--raio-borda-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: var(--transicao);
+}
+.btn-primario:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+.btn-acento {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--cor-acento);
+  color: var(--cor-branco);
+  padding: 12px 28px;
+  border-radius: var(--raio-borda-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: var(--transicao);
+}
+.btn-acento:hover {
+  background: var(--cor-acento-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--cor-primaria);
+  padding: 11px 28px;
+  border-radius: var(--raio-borda-sm);
+  border: 2px solid var(--cor-primaria);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: var(--transicao);
+}
+.btn-outline:hover {
+  background: var(--cor-primaria);
+  color: var(--cor-branco);
+}
+
+/* ─── Utilitários ─── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cor-fundo-cinza); }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #aaa; }

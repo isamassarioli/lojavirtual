@@ -1,14 +1,38 @@
-<header class="header-admin">
-<h1>Painel Administrativo</h1>
-<nav>
-<a routerLink="/admin/dashboard">Dashboard</a> |
-<a routerLink="/admin/clientes">Clientes</a> |
-<a routerLink="/home">Voltar ao site</a>
-</nav>
-</header>
-<section class="admin-container">
-<main class="admin-content">
-<!-- páginas do admin entram aqui -->
-<router-outlet></router-outlet>
-</main>
-</section>
+<div class="admin-wrapper">
+  <aside class="admin-sidebar">
+    <div class="admin-logo">
+      <span class="logo-icon">✦</span>
+      <span class="logo-texto">MODA<strong>VIBE</strong></span>
+    </div>
+    <nav class="admin-nav">
+      <a routerLink="/admin/dashboard" class="admin-nav-link">
+        <span class="admin-nav-icon">📊</span>
+        <span>Dashboard</span>
+      </a>
+      <a routerLink="/admin/clientes" class="admin-nav-link">
+        <span class="admin-nav-icon">👥</span>
+        <span>Clientes</span>
+      </a>
+      <a routerLink="/produtos" class="admin-nav-link">
+        <span class="admin-nav-icon">👕</span>
+        <span>Produtos</span>
+      </a>
+    </nav>
+    <div class="admin-sidebar-footer">
+      <a routerLink="/home" class="admin-voltar">← Voltar ao site</a>
+    </div>
+  </aside>
+
+  <div class="admin-main">
+    <header class="admin-header">
+      <h1 class="admin-header-titulo">Painel Administrativo</h1>
+      <div class="admin-header-usuario">
+        <span class="admin-avatar">A</span>
+        <span class="admin-nome">Admin</span>
+      </div>
+    </header>
+    <main class="admin-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

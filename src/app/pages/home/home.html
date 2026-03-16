@@ -1,2 +1,109 @@
-<h1>Home</h1>
-<p>Bem-vindo à nossa loja!</p>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-conteudo">
+    <span class="hero-tag">Nova Coleção 2026</span>
+    <h1 class="hero-titulo">Veste quem <br><em>você é.</em></h1>
+    <p class="hero-descricao">Peças cuidadosamente selecionadas para o seu estilo. Moda contemporânea com qualidade premium.</p>
+    <div class="hero-acoes">
+      <a routerLink="/produtos" class="btn-acento">Explorar Coleção</a>
+      <a routerLink="/produtos" class="btn-outline">Ver Novidades</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-grande">
+      <span class="hero-emoji">👗</span>
+      <div class="hero-badge">-25% OFF</div>
+    </div>
+    <div class="hero-cards-pequenos">
+      <div class="hero-card-pequeno">
+        <span>🧥</span>
+        <small>Jaquetas</small>
+      </div>
+      <div class="hero-card-pequeno hero-card-acento">
+        <span>👖</span>
+        <small>Calças</small>
+      </div>
+      <div class="hero-card-pequeno">
+        <span>👕</span>
+        <small>Camisetas</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categorias -->
+<section class="secao-categorias">
+  <div class="container">
+    <h2 class="secao-titulo">Categorias</h2>
+    <div class="categorias-grid">
+      <a routerLink="/produtos" class="categoria-card">
+        <span class="categoria-icone">👕</span>
+        <span class="categoria-nome">Camisetas</span>
+      </a>
+      <a routerLink="/produtos" class="categoria-card">
+        <span class="categoria-icone">👖</span>
+        <span class="categoria-nome">Calças</span>
+      </a>
+      <a routerLink="/produtos" class="categoria-card">
+        <span class="categoria-icone">👗</span>
+        <span class="categoria-nome">Vestidos</span>
+      </a>
+      <a routerLink="/produtos" class="categoria-card">
+        <span class="categoria-icone">🧥</span>
+        <span class="categoria-nome">Jaquetas</span>
+      </a>
+      <a routerLink="/produtos" class="categoria-card">
+        <span class="categoria-icone">🩳</span>
+        <span class="categoria-nome">Shorts</span>
+      </a>
+      <a routerLink="/produtos" class="categoria-card">
+        <span class="categoria-icone">🥼</span>
+        <span class="categoria-nome">Blazers</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Destaques da Semana -->
+<section class="secao-destaques">
+  <div class="container">
+    <div class="secao-header">
+      <h2 class="secao-titulo">Destaques da Semana</h2>
+      <a routerLink="/produtos" class="ver-todos">Ver todos →</a>
+    </div>
+    <div class="produtos-grid">
+      <a *ngFor="let produto of destaques" [routerLink]="['/produtos', produto.id]" class="produto-card">
+        <div class="produto-imagem" [style.background]="produto.gradiente">
+          <span class="produto-icone-grade">{{ produto.icone }}</span>
+          <span *ngIf="produto.precoOriginal" class="produto-badge-desconto">
+            -{{ calcDesconto(produto.preco, produto.precoOriginal!) }}%
+          </span>
+        </div>
+        <div class="produto-info">
+          <span class="produto-categoria">{{ produto.categoria }}</span>
+          <h3 class="produto-nome">{{ produto.nome }}</h3>
+          <div class="produto-precos">
+            <span *ngIf="produto.precoOriginal" class="produto-preco-original">
+              R$ {{ produto.precoOriginal | number:'1.2-2' }}
+            </span>
+            <span class="produto-preco">R$ {{ produto.preco | number:'1.2-2' }}</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Banner Oferta -->
+<section class="banner-oferta">
+  <div class="container">
+    <div class="banner-conteudo">
+      <div class="banner-texto">
+        <span class="banner-tag">Oferta Especial</span>
+        <h2 class="banner-titulo">Frete Grátis em compras acima de R$ 199</h2>
+        <p>Válido para todo o Brasil. Aproveite hoje!</p>
+      </div>
+      <a routerLink="/produtos" class="btn-primario">Aproveitar Agora</a>
+    </div>
+  </div>
+</section>

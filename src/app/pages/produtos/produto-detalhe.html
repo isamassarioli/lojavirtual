@@ -1,12 +1,68 @@
-<div *ngIf="produto; else notFound">
-  <h1>Detalhe do Produto</h1>
-  <h2>{{ produto.nome }} (ID: {{ produto.id }})</h2>
-  <p>{{ produto.descricao }}</p>
-  <p><a [routerLink]="['/produtos']">← Voltar para a listagem</a></p>
+<div *ngIf="produto; else notFound" class="detalhe-page">
+  <nav class="breadcrumb">
+    <a routerLink="/home">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a routerLink="/produtos">Produtos</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>{{ produto.nome }}</span>
+  </nav>
+
+  <div class="detalhe-container">
+    <div class="detalhe-imagem-wrap">
+      <div class="detalhe-imagem" [style.background]="produto.gradiente">
+        <span class="detalhe-icone">{{ produto.icone }}</span>
+        <span *ngIf="produto.precoOriginal" class="detalhe-badge-desconto">
+          -{{ calcDesconto(produto.preco, produto.precoOriginal!) }}%
+        </span>
+      </div>
+    </div>
+
+    <div class="detalhe-info">
+      <span class="produto-categoria">{{ produto.categoria }}</span>
+      <h1 class="detalhe-titulo">{{ produto.nome }}</h1>
+
+      <div class="detalhe-precos">
+        <span *ngIf="produto.precoOriginal" class="detalhe-preco-original">
+          De R$ {{ produto.precoOriginal | number:'1.2-2' }}
+        </span>
+        <span class="detalhe-preco-atual">R$ {{ produto.preco | number:'1.2-2' }}</span>
+        <span *ngIf="produto.precoOriginal" class="detalhe-economia">
+          ✔ Economia de R$ {{ (produto.precoOriginal - produto.preco) | number:'1.2-2' }}
+        </span>
+      </div>
+
+      <div class="detalhe-secao">
+        <p class="detalhe-label">Tamanhos Disponíveis</p>
+        <div class="tamanhos-lista">
+          <button *ngFor="let t of produto.tamanhos" class="tamanho-btn">{{ t }}</button>
+        </div>
+      </div>
+
+      <div class="detalhe-secao">
+        <p class="detalhe-label">Cores</p>
+        <div class="cores-lista">
+          <span *ngFor="let cor of produto.cores" class="cor-tag">{{ cor }}</span>
+        </div>
+      </div>
+
+      <div class="detalhe-secao">
+        <p class="detalhe-label">Sobre o Produto</p>
+        <p class="detalhe-descricao">{{ produto.descricao }}</p>
+      </div>
+
+      <div class="detalhe-acoes">
+        <button class="btn-acento detalhe-btn-compra">Adicionar ao Carrinho</button>
+        <a routerLink="/produtos" class="btn-outline">← Voltar</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <ng-template #notFound>
-  <h1>Produto não encontrado</h1>
-  <p>O produto solicitado não existe.</p>
-  <p><a [routerLink]="['/produtos']">← Voltar para a listagem</a></p>
+  <div class="not-found">
+    <span class="not-found-icon">🔍</span>
+    <h2>Produto não encontrado</h2>
+    <p>O produto que você está procurando não existe.</p>
+    <a routerLink="/produtos" class="btn-acento">Ver Todos os Produtos</a>
+  </div>
 </ng-template>

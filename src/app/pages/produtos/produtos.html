@@ -1,22 +1,31 @@
-<h1>Produtos</h1>
+<div class="produtos-page">
+  <div class="produtos-header">
+    <h1 class="produtos-titulo">Nossa Coleção</h1>
+    <p class="produtos-subtitulo">{{ produtos.length }} peças disponíveis</p>
+  </div>
 
-<p>Lista de produtos disponíveis na nossa loja.</p>
-
-<table class="tabela-produtos">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Nome</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let p of produtos">
-			<td><a [routerLink]="['/produtos', p.id]">{{ p.id }}</a></td>
-			<td><a [routerLink]="['/produtos', p.id]">{{ p.nome }}</a></td>
-		</tr>
-	</tbody>
-</table>
-
-<p>
-	<em>Clique no ID ou nome para ver o detalhamento do produto.</em>
-</p>
+  <div class="produtos-grid-wrapper">
+    <a *ngFor="let produto of produtos" [routerLink]="['/produtos', produto.id]" class="produto-card">
+      <div class="produto-imagem" [style.background]="produto.gradiente">
+        <span class="produto-icone-grade">{{ produto.icone }}</span>
+        <span *ngIf="produto.precoOriginal" class="produto-badge-desconto">
+          -{{ calcDesconto(produto.preco, produto.precoOriginal) }}%
+        </span>
+        <span *ngIf="produto.destaque" class="produto-badge-destaque">Destaque</span>
+      </div>
+      <div class="produto-info">
+        <span class="produto-categoria">{{ produto.categoria }}</span>
+        <h3 class="produto-nome">{{ produto.nome }}</h3>
+        <div class="tamanhos-lista">
+          <span *ngFor="let t of produto.tamanhos" class="tamanho-tag">{{ t }}</span>
+        </div>
+        <div class="produto-precos">
+          <span *ngIf="produto.precoOriginal" class="produto-preco-original">
+            R$ {{ produto.precoOriginal | number:'1.2-2' }}
+          </span>
+          <span class="produto-preco">R$ {{ produto.preco | number:'1.2-2' }}</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
